@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="I4u-o5-8tu" customClass="SearchResultCell" customModule="iTunesStoreSearch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I4u-o5-8tu" id="xcR-XJ-N97">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="iq7-xE-bsp">
+                        <rect key="frame" x="16" y="10" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="55H-QV-4V8"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="60" id="695-9V-coC"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Ige-KN-4qv"/>
+                            <constraint firstAttribute="height" constant="60" id="JPL-np-cIS"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="RQE-t8-BUy"/>
+                            <constraint firstAttribute="width" constant="60" id="xBo-Dv-Lff"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sno-mb-1wJ">
+                        <rect key="frame" x="84" y="16" width="236" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSu-1S-kRI">
+                        <rect key="frame" x="84" y="46" width="236" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="iq7-xE-bsp" firstAttribute="leading" secondItem="xcR-XJ-N97" secondAttribute="leading" constant="16" id="1vN-d8-aE8"/>
+                    <constraint firstItem="sno-mb-1wJ" firstAttribute="trailing" secondItem="xcR-XJ-N97" secondAttribute="trailingMargin" constant="16" id="GEH-2M-bkB"/>
+                    <constraint firstItem="XSu-1S-kRI" firstAttribute="trailing" secondItem="xcR-XJ-N97" secondAttribute="trailingMargin" constant="16" id="Gmg-tz-3nR"/>
+                    <constraint firstItem="sno-mb-1wJ" firstAttribute="leading" secondItem="iq7-xE-bsp" secondAttribute="trailing" constant="8" id="Vsz-zS-Qk6"/>
+                    <constraint firstItem="iq7-xE-bsp" firstAttribute="top" secondItem="xcR-XJ-N97" secondAttribute="top" constant="10" id="Vtf-Ds-sYX"/>
+                    <constraint firstItem="XSu-1S-kRI" firstAttribute="top" secondItem="sno-mb-1wJ" secondAttribute="bottom" constant="8" id="apk-xo-tUr"/>
+                    <constraint firstItem="XSu-1S-kRI" firstAttribute="leading" secondItem="iq7-xE-bsp" secondAttribute="trailing" constant="8" id="kQp-DH-fyl"/>
+                    <constraint firstItem="sno-mb-1wJ" firstAttribute="top" secondItem="xcR-XJ-N97" secondAttribute="top" constant="16" id="lLv-BW-CaW"/>
+                    <constraint firstAttribute="bottom" secondItem="XSu-1S-kRI" secondAttribute="bottom" constant="16" id="s0M-Q8-ZWK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="artistNameLabel" destination="XSu-1S-kRI" id="qd1-zg-U5u"/>
+                <outlet property="artworkImageView" destination="iq7-xE-bsp" id="cup-eZ-ZyE"/>
+                <outlet property="nameLabel" destination="sno-mb-1wJ" id="yr5-DE-1N2"/>
+            </connections>
+            <point key="canvasLocation" x="-91.200000000000003" y="31.484257871064472"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Placeholder" width="60" height="60"/>
+    </resources>
+</document>
