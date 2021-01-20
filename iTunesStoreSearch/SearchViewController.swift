@@ -38,6 +38,56 @@ class SearchViewController: UIViewController {
         // To open keyboard when app starts
         searchBar.becomeFirstResponder()
     }
+    // MARK:- Helper methods
+    //
+    
+    // Creating URL with valid parameters
+    func iTunesURL(searchText: String) -> URL{
+        let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        let URLString = String(format: "https://itunes.apple.com/search?term=%@", encodedText!)
+        // URL returns nil if it is invalid string, like having one or more spaces
+        let url = URL(string: URLString)
+        return url!
+    }
+    // Getting JSON
+    /*
+    func performStoreRequest(with url: URL) -> String?{
+        do{
+            return try String(contentsOf: url)
+        }
+        catch{
+            print("Download error: '\(error.localizedDescription)'")
+            return nil
+        }
+    }*/
+    func performStoreRequest(with url: URL) -> Data?{
+        do{
+            return try Data(contentsOf: url)
+        }
+        catch{
+            showNetworkError()
+            print("Download error: '\(error.localizedDescription)'")
+            return nil
+        }
+    }
+
+    func parse(data: Data) -> [SearchResult]{
+        do{
+            let jsonDecoder = JSONDecoder()
+            let result = try jsonDecoder.decode(ResultArray.self, from: data)
+            return result.results
+        } catch{
+            print("JOSN error: '\(error.localizedDescription)'.")
+            return[]
+        }
+    }
+    
+    func showNetworkError(){
+        let alert = UIAlertController(title: "Whoops...", message: "There was an error accessing the iTunes Store. Please try again.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK:- Table view cells identifiers
@@ -53,10 +103,8 @@ struct TableView{
 //
 extension SearchViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchResults = []
-        hasSearched = true
         // To handle case of no results --> there are no elements appended to the searchResults array
-        if searchBar.text! != "justin bieber"
+        /*if searchBar.text! != "justin bieber"
         {
             for i in 0...2{
                 let searchResult = SearchResult()
@@ -64,9 +112,21 @@ extension SearchViewController: UISearchBarDelegate{
                 searchResult.artistName = searchBar.text!
                 searchResults.append(searchResult)
             }
+        }*/
+        // Creating URL
+        if !searchBar.text!.isEmpty{
+            searchBar.resignFirstResponder()
+            searchResults = []
+            hasSearched = true
+            let url = iTunesURL(searchText: searchBar.text!)
+            if let JSONData = performStoreRequest(with: url){
+                var results = parse(data: JSONData)
+                print("Recieved JSON Data: '\(results)'")
+                results.sort { $0 < $1 }
+                searchResults = results
+            }
+            tableView.reloadData()
         }
-        tableView.reloadData()
-        searchBar.resignFirstResponder()
     }
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         .topAttached
@@ -97,8 +157,14 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: TableView.CellIdentifiers.searchResultCell, for: indexPath) as! SearchResultCell
-            cell.nameLabel?.text = searchResults[indexPath.row].name
-            cell.artistNameLabel?.text = searchResults[indexPath.row].artistName
+            let searchResult = searchResults[indexPath.row]
+            cell.nameLabel?.text = searchResult.name
+            if searchResult.artist.isEmpty{
+                cell.artistNameLabel?.text = "Unknown"
+            } else{
+                cell.artistNameLabel?.text = String(format: "%@ (%@)", searchResult.artist, searchResult.type)
+            }
+
             return cell
         }
     }
