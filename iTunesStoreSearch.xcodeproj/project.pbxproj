@@ -17,6 +17,8 @@
 		966357B825B37B48006AFE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 966357B725B37B48006AFE63 /* Assets.xcassets */; };
 		966357BB25B37B48006AFE63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966357B925B37B48006AFE63 /* LaunchScreen.storyboard */; };
 		966357C525B3A184006AFE63 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966357C425B3A184006AFE63 /* SearchResult.swift */; };
+		96CD8EEA25B8C0BE00E44808 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CD8EE825B8C0BE00E44808 /* LoadingTableViewCell.swift */; };
+		96CD8EEB25B8C0BE00E44808 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96CD8EE925B8C0BE00E44808 /* LoadingTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		966357BA25B37B48006AFE63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		966357BC25B37B48006AFE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966357C425B3A184006AFE63 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		96CD8EE825B8C0BE00E44808 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		96CD8EE925B8C0BE00E44808 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				966357AE25B37B44006AFE63 /* AppDelegate.swift */,
 				966357B025B37B44006AFE63 /* SceneDelegate.swift */,
 				966357B225B37B44006AFE63 /* SearchViewController.swift */,
+				96CD8EE825B8C0BE00E44808 /* LoadingTableViewCell.swift */,
+				96CD8EE925B8C0BE00E44808 /* LoadingTableViewCell.xib */,
 				966357C425B3A184006AFE63 /* SearchResult.swift */,
 				9611D91B25B4501F00F800BD /* SearchResultCell.swift */,
 				9611D91825B4452500F800BD /* SearchResultCell.xib */,
@@ -136,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96CD8EEB25B8C0BE00E44808 /* LoadingTableViewCell.xib in Resources */,
 				966357BB25B37B48006AFE63 /* LaunchScreen.storyboard in Resources */,
 				966357B825B37B48006AFE63 /* Assets.xcassets in Resources */,
 				9611D91925B4452500F800BD /* SearchResultCell.xib in Resources */,
@@ -153,6 +160,7 @@
 			files = (
 				966357B325B37B44006AFE63 /* SearchViewController.swift in Sources */,
 				966357AF25B37B44006AFE63 /* AppDelegate.swift in Sources */,
+				96CD8EEA25B8C0BE00E44808 /* LoadingTableViewCell.swift in Sources */,
 				966357C525B3A184006AFE63 /* SearchResult.swift in Sources */,
 				966357B125B37B44006AFE63 /* SceneDelegate.swift in Sources */,
 				9611D91C25B4501F00F800BD /* SearchResultCell.swift in Sources */,
